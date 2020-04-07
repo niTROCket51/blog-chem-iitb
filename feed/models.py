@@ -13,7 +13,7 @@ class Post(models.Model):
     """The class that defines Post object for the blog."""
 
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=50, default='chem-iit')
+    slug = models.SlugField(max_length=50, unique=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)

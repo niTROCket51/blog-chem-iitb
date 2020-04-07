@@ -7,5 +7,5 @@ urlpatterns = [
     # ex: /feed/
     path('', views.PostList.as_view(), name='home'),
     # ex: /feed/my-post/
-    # path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
+    path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
 ]
