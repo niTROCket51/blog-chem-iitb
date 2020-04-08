@@ -1,6 +1,7 @@
 """Public interface which shows the latest feed for the blog."""
 
 from django.views import generic
+from django.db.models import Q
 from .models import Post
 
 class PostList(generic.ListView):
@@ -13,6 +14,13 @@ class PostDetail(generic.DetailView):
     template_name = 'feed/post_detail.html'
 
 class SearchResultsView(generic.ListView):
-    """Class meant to be used for search queries"""
+    """Class to be used for search queries"""
     model = Post
     template_name = 'feed/search_results.html'
+    
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = Post.objects.filter(
+            Q(title__icontains=query) | Q(content__icontains=query)
+        )
+        return object_list

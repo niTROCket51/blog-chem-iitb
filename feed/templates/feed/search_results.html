@@ -6,9 +6,9 @@
       <div class="card-body">
         <h2>Search Results</h2>
         <ul>
-            {% for post in post_list %}
+            {% for post in object_list %}
               <li>
-                {{ post.title }}
+                <a href="{% url 'post_detail' post.slug %}"> {{ post.title }} </a>
               </li>
             {% endfor %}
         </ul>
