@@ -32,9 +32,10 @@ Start the development server:
 ```
 python manage.py runserver
 ```
-Now visit [127.0.0.1:8000/feed/](127.0.0.1:8000/feed/) to view the current build.<br/>
+Now visit 127.0.0.1:8000/feed/ in your browser to view the current build.<br/>
 
-Visit [127.0.0.1:8000/admin/](127.0.0.1:8000/admin/) to update the blog.<br/>
+Visit 127.0.0.1:8000/admin/ to update the blog.<br/>
+
 `Username: admin`<br/>
 `Password: adminadmin`
 
