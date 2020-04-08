@@ -12,3 +12,8 @@ class PostList(generic.ListView):
 class PostDetail(generic.DetailView):
     model = Post
     template_name = 'feed/post_detail.html'
+
+class SearchResultsView(generic.ListView):
+    """Class meant to be used for search queries"""
+    model = Post
+    template_name = 'feed/search_results.html'
