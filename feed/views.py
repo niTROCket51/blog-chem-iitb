@@ -2,7 +2,6 @@
 
 from django.views import generic
 from .models import Post
-from django.template import loader
 
 class PostList(generic.ListView):
     queryset = Post.objects.order_by('-published_date')
