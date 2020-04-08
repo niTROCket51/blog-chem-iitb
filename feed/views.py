@@ -7,6 +7,7 @@ from .models import Post
 class PostList(generic.ListView):
     queryset = Post.objects.order_by('-published_date')
     template_name = 'feed/index.html'
+    paginate_by = 5
     context_object_name = 'post_list'
 
 class PostDetail(generic.DetailView):

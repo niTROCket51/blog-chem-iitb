@@ -18,11 +18,6 @@ class Post(models.Model):
     content = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
 
-    def publish(self):
-        """The method responsible for publishing a post."""
-        self.published_date = timezone.now()
-        self.save()
-
     def __str__(self):
         """String representation of a Post object."""
         return self.title
