@@ -18,7 +18,7 @@ class SearchResultsView(generic.ListView):
     """Class to be used for search queries"""
     model = Post
     template_name = 'feed/search_results.html'
-    
+
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Post.objects.filter(

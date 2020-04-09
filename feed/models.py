@@ -5,6 +5,7 @@ behaviour of data stored for the app named feed.
 
 """
 
+from datetime import date
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
@@ -17,6 +18,7 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
+    published_date_mdy = models.DateField(default=date.today)
 
     def __str__(self):
         """String representation of a Post object."""
