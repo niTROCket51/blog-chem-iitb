@@ -5,17 +5,19 @@ from django.db.models import Q
 from .models import Post
 
 class PostList(generic.ListView):
+    """Views showing blog index."""
     queryset = Post.objects.order_by('-published_date')
     template_name = 'feed/index.html'
     paginate_by = 5
     context_object_name = 'post_list'
 
 class PostDetail(generic.DetailView):
+    """Views showing full content of selected Post"""
     model = Post
     template_name = 'feed/post_detail.html'
 
 class SearchResultsView(generic.ListView):
-    """Class to be used for search queries"""
+    """Views showing results to search queries."""
     model = Post
     template_name = 'feed/search_results.html'
 
@@ -25,3 +27,8 @@ class SearchResultsView(generic.ListView):
             Q(title__icontains=query) | Q(content__icontains=query)
         )
         return object_list
+
+class AboutUsView(generic.ListView):
+    """Views for About Us page"""
+    model = Post
+    template_name = 'feed/about_us.html'
