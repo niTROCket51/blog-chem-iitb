@@ -48,11 +48,13 @@ Visit 127.0.0.1:8000/admin/ to update the blog.<br/>
 //TODO
 
 ## Built with
-* Python 3.7
+* Python 3.7 - The programming language
 * Django 3.0.5 - The web framework
-* Jinja 2.11.x - The template engine
+* ~~Jinja2~~ DTL - The template engine
 
 ## Contributors
 
 * [niTROCket51](https://github.com/niTROCket51)
 * [moomoodoggo](http://github.com/moomoodoggo)
+* [iP0x15](https://github.com/iP0x15)
+* [anchalyadav08](https://github.com/anchalyadav08)
