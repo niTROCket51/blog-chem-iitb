@@ -2,7 +2,7 @@
 
 from django.views import generic
 from django.db.models import Q
-from .models import Post
+from .models import Post, CourseReviewData
 
 class PostList(generic.ListView):
     """Views showing blog index."""
@@ -32,3 +32,9 @@ class AboutUsView(generic.ListView):
     """Views for About Us page"""
     model = Post
     template_name = 'feed/about_us.html'
+
+class CourseReviewView(generic.ListView):
+    """Views for Course Reviews index page."""
+    queryset = CourseReviewData.objects.order_by('-course')
+    template_name = 'feed/coursereview_index.html'
+    context_object_name = 'course_list'

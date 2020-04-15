@@ -1,0 +1,60 @@
+{% extends "feed/base.html" %} 
+{% block content %}
+<style>
+    body {
+        font-family: "Lato", sans-serif;
+        background-color: #fdfdfd;
+    }
+    
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white"> Index of Courses </h3>
+                    <p class="text-light">Click on a Course Code to open review data for that course &nbsp
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <!-- Index table of courses -->
+        <div class="col-md-8 mt-3 left">
+            <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">Course Code</th>
+                    <th scope="col" class="text-center">Course Name</th>
+                    <th scope="col" class="text-center">Reviewer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for course in course_list %}
+                    <tr>
+                    <td scope="row" class="text-center">{{ course.course.code }}</td>
+                    <td class="text-center">{{ course.course.name }}</td>
+                    <td class="text-center">{{ course.submitter }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            {% for course in course_list %}
+            {% endfor %}
+        </div>
+        {% block sidebar %} {% include 'feed/sidebar.html' %} {% endblock sidebar %}
+    </div>
+</div>
+{%endblock%}
