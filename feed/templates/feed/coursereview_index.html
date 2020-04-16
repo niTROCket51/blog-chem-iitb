@@ -39,14 +39,18 @@
                     <th scope="col" class="text-center">Course Code</th>
                     <th scope="col" class="text-center">Course Name</th>
                     <th scope="col" class="text-center">Reviewer</th>
+                    <th scope="col" class="text-center">Session</th>
                   </tr>
                 </thead>
                 <tbody>
                     {% for course in course_list %}
                     <tr>
-                    <td scope="row" class="text-center">{{ course.course.code }}</td>
+                    <td scope="row" class="text-center">
+                        <a href="{% url 'coursereview_index' %}" class="btn btn-primary btn-sm btn-block">{{ course.course.code }}</a>
+                    </td>
                     <td class="text-center">{{ course.course.name }}</td>
                     <td class="text-center">{{ course.submitter }}</td>
+                    <td class="text-center">{{ course.session }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

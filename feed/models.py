@@ -9,6 +9,7 @@ from datetime import date
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+from django.utils.text import slugify
 
 class Post(models.Model):
     """Class for Post object for the blog."""
@@ -52,10 +53,9 @@ class Course(models.Model):
     code = models.CharField(max_length=6)
     name = models.CharField(max_length=150)
     semester = models.IntegerField(choices=SEMESTER)
-    session = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.code +": " +self.name
+        return self.code + self.name
 
 class CourseReviewData(models.Model):
     """Class for Course Review Data object."""
@@ -64,6 +64,7 @@ class CourseReviewData(models.Model):
     submitter = models.CharField(max_length=150, blank=True, null=True)
     submitter_email = models.EmailField()
     course_instructor = models.CharField(max_length=150)
+    session = models.CharField(max_length=20)
     grade_awarded = models.CharField(max_length=2)
     course_difficulty = models.CharField(max_length=20)
     pre_requisites = models.CharField(max_length=150)
@@ -74,6 +75,21 @@ class CourseReviewData(models.Model):
     exam_review = models.TextField()
     performance_tips = models.TextField()
     references = models.TextField()
+    slug = models.SlugField(max_length=200, unique=True)
+
+    def _get_unique_slug(self):
+        slug = slugify(self.course)
+        unique_slug = slug
+        num = 1
+        while CourseReviewData.objects.filter(slug=unique_slug).exists():
+            unique_slug = '{}-{}'.format(slug, num)
+            num += 1
+        return unique_slug
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self._get_unique_slug()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.course.code + "-" + self.submitter

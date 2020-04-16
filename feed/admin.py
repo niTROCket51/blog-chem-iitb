@@ -10,11 +10,11 @@ class PostAdmin(admin.ModelAdmin):
 
 class CourseAdmin(admin.ModelAdmin):
     """Class representing Course model in admin display."""
-    list_display = ['code', 'name', 'semester', 'session']
+    list_display = ['code', 'name', 'semester']
 
 class CourseReviewDataAdmin(admin.ModelAdmin):
     """Class representing CourseReviewData model in admin display."""
-    list_display = ['submitter', 'course']
+    list_display = ['submitter', 'course', 'session']
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Course, CourseAdmin)
