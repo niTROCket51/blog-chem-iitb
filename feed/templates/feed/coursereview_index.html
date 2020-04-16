@@ -46,7 +46,7 @@
                     {% for course in course_list %}
                     <tr>
                     <td scope="row" class="text-center">
-                        <a href="{% url 'coursereview_index' %}" class="btn btn-primary btn-sm btn-block">{{ course.course.code }}</a>
+                        <a href="{% url 'coursereview' course.slug %}" class="btn btn-primary btn-sm btn-block">{{ course.course.code }}</a>
                     </td>
                     <td class="text-center">{{ course.course.name }}</td>
                     <td class="text-center">{{ course.submitter }}</td>

@@ -4,14 +4,16 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # ex: /feed/
+    # ex: /
     path('', views.PostList.as_view(), name='home'),
-    # ex: /feed/search/
+    # ex: /search/
     path('search/', views.SearchResultsView.as_view(), name='search_results'),
-    # ex: /feed/aboutus/
+    # ex: /aboutus/
     path('aboutus/', views.AboutUsView.as_view(), name='about_us'),
-    # ex: /feed/coursereview/
+    # ex: /coursereview/
     path('coursereview/', views.CourseReviewView.as_view(), name='coursereview_index'),
-    # ex: /feed/post-title/
+    # ex: /post-title/
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
+    # ex: review/course-code/
+    path('review/<slug:slug>/', views.CourseReview.as_view(), name='coursereview'),
 ]

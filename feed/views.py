@@ -38,3 +38,8 @@ class CourseReviewView(generic.ListView):
     queryset = CourseReviewData.objects.order_by('-course')
     template_name = 'feed/coursereview_index.html'
     context_object_name = 'course_list'
+
+class CourseReview(generic.DetailView):
+    """Views showing details of Course Review."""
+    model = CourseReviewData
+    template_name = 'feed/coursereview.html'

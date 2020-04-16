@@ -9,7 +9,6 @@ from datetime import date
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
-from django.utils.text import slugify
 
 class Post(models.Model):
     """Class for Post object for the blog."""
