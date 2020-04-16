@@ -55,7 +55,7 @@ class Course(models.Model):
     semester = models.IntegerField(choices=SEMESTER)
 
     def __str__(self):
-        return self.code + self.name
+        return self.code + "-" + self.name
 
 class CourseReviewData(models.Model):
     """Class for Course Review Data object."""
@@ -76,20 +76,8 @@ class CourseReviewData(models.Model):
     performance_tips = models.TextField()
     references = models.TextField()
     slug = models.SlugField(max_length=200, unique=True)
-
-    def _get_unique_slug(self):
-        slug = slugify(self.course)
-        unique_slug = slug
-        num = 1
-        while CourseReviewData.objects.filter(slug=unique_slug).exists():
-            unique_slug = '{}-{}'.format(slug, num)
-            num += 1
-        return unique_slug
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = self._get_unique_slug()
-        super().save(*args, **kwargs)
+    attendance_policy = models.CharField(
+        max_length=150, default="80% attendace is required officially")
 
     def __str__(self):
         return self.course.code + "-" + self.submitter
