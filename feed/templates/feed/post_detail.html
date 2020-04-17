@@ -4,9 +4,13 @@
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
       <div class="card-body">
-        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
-        <p class=" text-muted">{{ post.author }} | {{ post.published_date_mdy }}</p>
-        <p class="card-text ">{{ object.content | safe }}</p>
+        <h1>
+          {% block title %} {{ object.title }} {% endblock title %}
+        </h1>
+          <span class="badge badge-primary">{{ post.author }}</span>&nbsp;
+          <span class="badge badge-info">{{ post.published_date_mdy }}</span>
+        <hr/>
+        <p class="card-text">{{ object.content | safe }}</p>
       </div>
     </div>
     {% block sidebar %} {% include 'feed/sidebar.html' %} {% endblock sidebar %}

@@ -43,3 +43,4 @@ class CourseReview(generic.DetailView):
     """Views showing details of Course Review."""
     model = CourseReviewData
     template_name = 'feed/coursereview.html'
+    difficulty = {1:"Very Easy", 2:"Easy", 3:"Moderate", 4:"Difficult", 5:"Very Difficult"}
