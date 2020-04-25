@@ -35,7 +35,7 @@ class AboutUsView(generic.ListView):
 
 class CourseReviewView(generic.ListView):
     """Views for Course Reviews index page."""
-    queryset = CourseReviewData.objects.order_by('-course')
+    queryset = CourseReviewData.objects.order_by('course')
     template_name = 'feed/coursereview_index.html'
     context_object_name = 'course_list'
 

@@ -22,6 +22,10 @@
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
       <div class="card-body">
+        <div class="text-right">
+          <a href="{% url 'coursereview_index' %}"
+          class="badge badge-dark badge-pill">&laquo; Back to list of courses</a>
+        </div>
         <p>
           <span class="font-weight-bold">Instructor: &nbsp;</span>
           {{ object.course_instructor }}
@@ -35,16 +39,36 @@
           {{ object.pre_requisites }}
         </p>
         <p>
+          <span class="font-weight-bold">Attendace policy:</span><br/>
+          {{ object.attendance_policy|linebreaks }}
+        </p>
+        <p>
           <span class="font-weight-bold">Assessment Methods: &nbsp;</span>
           {{ object.assesments_methods }}
         </p>
         <p>
           <span class="font-weight-bold">Topics covered: &nbsp;</span><br/>
-          {{ object.topics_covered | safe }}
+          {{ object.topics_covered|linebreaks }}
         </p>
         <p>
           <span class="font-weight-bold">Weightage</span><br/>
-          {{ object.weightage | safe }}
+          {{ object.weightage|linebreaks }}
+        </p>
+        <p>
+          <span class="font-weight-bold">How are the lectures/labs for this course?</span><br/>
+          {{ object.lecture_lab_review|linebreaks }}
+        </p>
+        <p>
+          <span class="font-weight-bold">How are the exams for this course?</span><br/>
+          {{ object.exam_review|linebreaks }}
+        </p>
+        <p>
+          <span class="font-weight-bold">Any tips for performing well?</span><br/>
+          {{ object.performance_tips|linebreaks }}
+        </p>
+        <p>
+          <span class="font-weight-bold">References:</span><br/>
+          {{ object.references|linebreaks }}
         </p>
       </div>
     </div>

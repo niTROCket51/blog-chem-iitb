@@ -9,12 +9,13 @@ from datetime import date
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+from autoslug import AutoSlugField
 
 class Post(models.Model):
     """Class for Post object for the blog."""
 
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=50, unique=True)
+    slug = AutoSlugField(unique=True, always_update=False, populate_from="title")
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
@@ -64,9 +65,9 @@ class CourseReviewData(models.Model):
     course_instructor = models.CharField(max_length=150)
     session = models.CharField(max_length=20)
     grade_awarded = models.CharField(max_length=2)
-    course_difficulty = models.CharField("Difficulty", max_length=20,
-                                         choices=Difficulty.choices, default=Difficulty.MODERATE)
-    pre_requisites = models.CharField(max_length=150)
+    course_difficulty = models.CharField(
+        "Difficulty", max_length=20, choices=Difficulty.choices, default=Difficulty.MODERATE)
+    pre_requisites = models.CharField(max_length=300)
     assesments_methods = models.TextField()
     topics_covered = models.TextField()
     weightage = models.TextField()
@@ -74,7 +75,7 @@ class CourseReviewData(models.Model):
     exam_review = models.TextField()
     performance_tips = models.TextField()
     references = models.TextField()
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = AutoSlugField(unique=True, always_update=False, populate_from="course")
     attendance_policy = models.CharField(
         max_length=150, default="80% attendace is required officially")
 

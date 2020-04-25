@@ -33,6 +33,7 @@
     <div class="row">
         <!-- Index table of courses -->
         <div class="col-md-8 mt-3 left">
+            <h3>First Semester</h3>
             <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -44,6 +45,7 @@
                 </thead>
                 <tbody>
                     {% for course in course_list %}
+                    {% if course.course.semester == "first" %}
                     <tr>
                     <td scope="row" class="text-center">
                         <a href="{% url 'coursereview' course.slug %}" class="btn btn-primary btn-sm btn-block">{{ course.course.code }}</a>
@@ -52,11 +54,10 @@
                     <td class="text-center">{{ course.submitter }}</td>
                     <td class="text-center">{{ course.session }}</td>
                     </tr>
+                    {% endif %}
                     {% endfor %}
                 </tbody>
               </table>
-            {% for course in course_list %}
-            {% endfor %}
         </div>
         {% block sidebar %} {% include 'feed/sidebar.html' %} {% endblock sidebar %}
     </div>
