@@ -25,7 +25,7 @@ SECRET_KEY = '1*@%eaq!&m51yhb(&^i^wte3l$xo344(o(--a%itabk@lyczz#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'e7183d7e.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'fafa37ed.ngrok.io']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'chemblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -27,31 +27,22 @@ class Post(models.Model):
 class Course(models.Model):
     """Class for Course object for the blog."""
 
-    FIRST = 1
-    SECOND = 2
-    THIRD = 3
-    FOURTH = 4
-    FIFTH = 5
-    SIXTH = 6
-    SEVENTH = 7
-    EIGHTH = 8
-    ELECTIVE = 0
-
-    SEMESTER = (
-        (FIRST, 'First Semester'),
-        (SECOND, 'Second Semester'),
-        (THIRD, 'Third Semester'),
-        (FOURTH, 'Fourth Semester'),
-        (FIFTH, 'Fifth Semester'),
-        (SIXTH, 'Sixth Semester'),
-        (SEVENTH, 'Seventh Semester'),
-        (EIGHTH, 'Eighth Semester'),
-        (ELECTIVE, 'Department Electives'),
-    )
+    class Semester(models.TextChoices):
+        """Class for Semester Choices."""
+        FIRST = "first", "First"
+        SECOND = "second", "Second"
+        THIRD = "third", "Third"
+        FOURTH = "fourth", "Fourth"
+        FIFTH = "fifth", "Fifth"
+        SIXTH = "sixth", "Sixth"
+        SEVENTH = "seventh", "Seventh"
+        EIGHTH = "eighth", "Eighth"
+        ELECTIVE = "elective", "Elective"
 
     code = models.CharField(max_length=6)
     name = models.CharField(max_length=150)
-    semester = models.IntegerField(choices=SEMESTER)
+    semester = models.CharField("Semester", max_length=20,
+                                choices=Semester.choices, default=Semester.ELECTIVE)
 
     def __str__(self):
         return self.code + "-" + self.name
@@ -59,13 +50,22 @@ class Course(models.Model):
 class CourseReviewData(models.Model):
     """Class for Course Review Data object."""
 
+    class Difficulty(models.TextChoices):
+        """Class for course difficulty choices."""
+        VERY_EASY = "very-easy", "Very-Easy"
+        EASY = "easy", "Easy"
+        MODERATE = "moderate", "Moderate"
+        DIFFICULT = "difficult", "Difficult"
+        VERY_DIFFICULT = "very-difficult", "Very-Difficult"
+
     course = models.ForeignKey('Course', on_delete=models.CASCADE)
     submitter = models.CharField(max_length=150, blank=True, null=True)
     submitter_email = models.EmailField()
     course_instructor = models.CharField(max_length=150)
     session = models.CharField(max_length=20)
     grade_awarded = models.CharField(max_length=2)
-    course_difficulty = models.CharField(max_length=20)
+    course_difficulty = models.CharField("Difficulty", max_length=20,
+                                         choices=Difficulty.choices, default=Difficulty.MODERATE)
     pre_requisites = models.CharField(max_length=150)
     assesments_methods = models.TextField()
     topics_covered = models.TextField()
@@ -80,4 +80,4 @@ class CourseReviewData(models.Model):
 
     def __str__(self):
         return self.course.code + "-" + self.submitter
-        
+              
