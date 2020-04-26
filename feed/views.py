@@ -35,9 +35,16 @@ class AboutUsView(generic.ListView):
 
 class CourseReviewView(generic.ListView):
     """Views for Course Reviews index page."""
-    queryset = CourseReviewData.objects.order_by('course')
     template_name = 'feed/coursereview_index.html'
     context_object_name = 'course_list'
+    queryset = CourseReviewData.objects.order_by('course')
+
+    # pylint: disable=W0221
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["sem"] = ['first', 'second', 'third', 'fourth', 'fifth',
+                          'sixth', 'seventh', 'eighth', 'electives']
+        return context
 
 class CourseReview(generic.DetailView):
     """Views showing details of Course Review."""
