@@ -1,0 +1,94 @@
+{% extends 'feed/base.html' %}
+{% block content %}
+
+<style>
+  .card {
+      box-shadow: 0 16px 48px #E3E7EB;
+  }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h2 class=" site-heading my-4 mt-3 text-white"> Our Vision </h2>
+                    <h5 class="text-light">Welcome to the Chemistry Family of IIT Bombay &nbsp</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left top">
+      <div class="card-body">
+        <h3>My Vision about this blog</h3>
+        <p>Dearest Chemistry Family</p>
+        <p>
+        I write this message with conviction in the belief that “the future lying ahead of us requires 
+        healthy collaborations” in order to succeed in our professional lives and elsewise as well. 
+        I reckon most of us indeed have this realization.
+        </p>
+        <p>
+        In the fast-moving world of Instagram stories, it’s hard to catch up with everyone and 
+        often times we are not even aware of the expertise of our peers.
+        </p>
+        <p>
+        It is with this thought I intend to work on this blog with the purpose to bring the student 
+        community of the Chemistry Department, IIT Bombay on the same page about their whereabouts 
+        in their professional lives. In addition to that this blog will contain course reviews, 
+        project reviews, POR reviews, resources to help the student community.
+        </p>
+        <p>
+        This space also intends to provide neutral space to students with an inclination in writing as well. 
+        </p>
+        <p>
+        At last, I in hope that this blog brings like-minded people together and new “bonds” are
+        formed eventually. 
+        </p>
+        <p>
+        If you are interested to write on this space telling your story, you can reach out to me 
+        at <a href="mailto:harsh2022@iitb.ac.in">harsh2022@iitb.ac.in</a>
+        </p>
+        <p>Harshvardhan Nigam</p>
+        <p>Chief Editor</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 card mb-4">
+        {% load static %}
+        <img class="card-img-top img-thumbnail" src="{% static 'feed/harsh/harsh_pic.jpg' %}" alt="Harsh Pic">
+        <div class="card-body">
+            <h5 class="card-title">About the Author</h5>
+            <p class="card-text">
+            I’m Harshvardhan Nigam, Third-year undergraduate hailing from the coaching town of Kota, 
+            Rajasthan. I am as clueless as my peers as to what my future career will be like but I 
+            have figured some core values over the past few years as a result of my excursions to 
+            rural India. I have understood the importance of having a strong community feeling which 
+            is the very reason why this blog holds a special place for me. Thank you to the 
+            compassionate people of Chondha village, Gujarat for teaching me the very essence of life. 
+            </p>
+            <div class="text-left">
+            <a href="mailto:harsh2022@iitb.ac.in" style="color: red;">
+                <i class="far fa-envelope fa-2x"></i>
+            </a>&nbsp;
+            <a href="https://www.facebook.com/harshiitb2017" style="color: royalblue;">
+            <i class="fab fa-facebook-square fa-2x"></i>
+            </a>&nbsp;
+            <a href="#" style="color: midnightblue;">
+            <i class="fab fa-linkedin fa-2x"></i>
+            </a>&nbsp;
+            <a href="#" style="color: deeppink;">
+            <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

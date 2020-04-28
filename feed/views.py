@@ -28,10 +28,10 @@ class SearchResultsView(generic.ListView):
         )
         return object_list
 
-class AboutUsView(generic.ListView):
-    """Views for About Us page"""
+class VisionView(generic.ListView):
+    """Views for Vision page"""
     model = Post
-    template_name = 'feed/about_us.html'
+    template_name = 'feed/vision.html'
 
 class CourseReviewView(generic.ListView):
     """Views for Course Reviews index page."""

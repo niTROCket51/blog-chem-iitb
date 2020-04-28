@@ -8,8 +8,8 @@ urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     # ex: /search/
     path('search/', views.SearchResultsView.as_view(), name='search_results'),
-    # ex: /aboutus/
-    path('aboutus/', views.AboutUsView.as_view(), name='about_us'),
+    # ex: /vision/
+    path('vision/', views.VisionView.as_view(), name='vision'),
     # ex: /coursereview/
     path('coursereview/', views.CourseReviewView.as_view(), name='coursereview_index'),
     # ex: /post-title/
