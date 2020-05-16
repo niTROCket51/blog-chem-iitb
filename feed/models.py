@@ -40,7 +40,7 @@ class Course(models.Model):
         EIGHTH = "eighth", "Eighth"
         ELECTIVE = "elective", "Elective"
 
-    code = models.CharField(max_length=6)
+    code = models.CharField(max_length=6, unique=True)
     name = models.CharField(max_length=150)
     semester = models.CharField("Semester", max_length=20,
                                 choices=Semester.choices, default=Semester.ELECTIVE)

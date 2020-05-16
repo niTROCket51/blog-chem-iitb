@@ -21,7 +21,9 @@
         <div class="row">
             <div class=" col-md-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Index of Courses </h3>
+                    <h3 class=" site-heading my-4 mt-3 text-white">
+                        Welcome to the Chemistry Family of IIT Bombay
+                    </h3>
                     <p class="text-light">Click on a Course Code to open review data for that course &nbsp
                     </p>
                 </div>
@@ -33,8 +35,6 @@
     <div class="row">
         <!-- Index table of courses -->
         <div class="col-md-8 mt-3 left">
-            {% for index in sem %}
-            <h3>{{ index|title }} Semester</h3>
             <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -46,7 +46,6 @@
                 </thead>
                 <tbody>
                     {% for course in course_list %}
-                    {% if course.course.semester == index %}
                     <tr>
                     <td scope="row" class="text-center">
                         <a href="{% url 'coursereview' course.slug %}" class="btn btn-primary btn-sm btn-block">{{ course.course.code }}</a>
@@ -55,11 +54,10 @@
                     <td class="text-center">{{ course.submitter }}</td>
                     <td class="text-center">{{ course.session }}</td>
                     </tr>
-                    {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
-            {% endfor %}
+            <h3>Courses from Other Departments</h3>
         </div>
         {% block sidebar %} {% include 'feed/sidebar.html' %} {% endblock sidebar %}
     </div>
