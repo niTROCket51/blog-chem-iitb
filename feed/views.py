@@ -2,7 +2,10 @@
 
 from django.views import generic
 from django.db.models import Q
-from .models import Post, CourseReviewData
+from rest_framework import viewsets
+from rest_framework import permissions
+from .models import Post, Course, CourseReviewData
+from .serializers import CourseSerializer, ReviewSerializer
 
 class PostList(generic.ListView):
     """Views showing blog index."""
@@ -50,3 +53,20 @@ class CourseReview(generic.DetailView):
     """Views showing details of Course Review."""
     model = CourseReviewData
     template_name = 'feed/coursereview.html'
+
+class CourseViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows courses to be viewed or edited.
+    """
+    queryset = Course.objects.all().order_by('code')
+    serializer_class = CourseSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class ReviewViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows reviews to be viewed or edited.
+    """
+    queryset = CourseReviewData.objects.all()
+    serializer_class = ReviewSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
