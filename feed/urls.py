@@ -12,7 +12,7 @@ router.register(r'reviews', views.ReviewViewSet)
 urlpatterns = [
     # ex: /
     path('', views.PostList.as_view(), name='home'),
-    #
+    # DRF
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # ex: /search/
