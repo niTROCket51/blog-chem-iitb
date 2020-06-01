@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'chemblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('DB_NAME_CB'),
+        'USER': os.environ.get('DB_USER_CB'),
+        'PASSWORD': os.environ.get('DB_PASS_CB'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

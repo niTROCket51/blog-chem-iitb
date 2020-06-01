@@ -28,16 +28,23 @@ Now,
 ```
 cd blog-chem-iitb
 ```
+
+To create superuser:
+```
+python manage.py createsuperuser
+```
+Fill the required fields.<br/>
+
 Start the development server:
 ```
 python manage.py runserver
 ```
-Now visit 127.0.0.1:8000/feed/ in your browser to view the current build.<br/>
+Now visit 127.0.0.1:8000/ in your browser to view the current build.<br/>
 
 Visit 127.0.0.1:8000/admin/ to update the blog.<br/>
+Use the info you used while creaing superuser to login.<br/>
 
-`Username: admin`<br/>
-`Password: adminadmin`
+RESTful API can be accessed at 127.0.0.1:8000/api/<br/>
 
 ## Running the tests
 
@@ -54,7 +61,5 @@ Visit 127.0.0.1:8000/admin/ to update the blog.<br/>
 
 ## Contributors
 
-* [niTROCket51](https://github.com/niTROCket51)
 * [moomoodoggo](http://github.com/moomoodoggo)
-* [iP0x15](https://github.com/iP0x15)
-* [anchalyadav08](https://github.com/anchalyadav08)
+* [niTROCket51](https://github.com/niTROCket51)
